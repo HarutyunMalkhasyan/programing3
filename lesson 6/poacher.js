@@ -1,7 +1,8 @@
-class Poacher{
+let LivingCreature = requirel(".LivingCreature")
+
+module.exports = class Poacher extends LivingCreature{
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+       super(x,y)
         this.directions = [];
     }
     getNewCoordinates() {
@@ -51,7 +52,7 @@ class Poacher{
 
     eat() {
         let emptyCell = this.chooseCell(1,3);
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
     
         if (newCell) {
             this.energy += 5;
@@ -91,7 +92,7 @@ class Poacher{
 
     move() {
         let emptyCell = this.chooseCell(0);
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
 
         if (newCell) {
             let newX = newCell[0];

@@ -1,7 +1,8 @@
-class Hunter {
+let LivingCreature = requirel(".LivingCreature")
+
+module.exports = class Hunter extends LivingCreature{
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x,y)
         // this.energy = 100;
         this.directions = [];
     }
@@ -52,7 +53,7 @@ class Hunter {
 
     eat() {
         let emptyCell = this.chooseCell(1,5);
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
 
         if (newCell) {
             this.energy += 5;
@@ -100,7 +101,7 @@ class Hunter {
 
     move() {
         let emptyCell = this.chooseCell(0);
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
 
         if (newCell) {
             let newX = newCell[0];

@@ -1,7 +1,8 @@
-class GrassEater {
+let LivingCreature = requirel(".LivingCreature")
+
+module.exports = class GrassEater extends LivingCreature{
     constructor(x,y){
-        this.x = x;
-        this.y = y;
+        super(x,y)
         this.energy = 8;
         this.directions = [];
     }
@@ -9,7 +10,7 @@ class GrassEater {
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x , this.y - 1],
-            [this.x + 1, this.y - 1],
+            [this.x + 1, this.y - 1],   
             [this.x - 1, this.y ],
             [this.x + 1, this.y ],
             [this.x - 1, this.y + 1],
@@ -42,7 +43,7 @@ class GrassEater {
     
      mul() {
             let emptyCell = this.chooseCell(0);
-            let newCell = random(emptyCell)
+            let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
     
             if (newCell && this.energy > 899) {
                 let newX = newCell[0];
@@ -60,7 +61,7 @@ class GrassEater {
     eat (){
             
             let emptyCell = this.chooseCell(1,5);
-            let newCell = random(emptyCell)
+            let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
     
             if(newCell){
                 this.energy += 4;
@@ -97,7 +98,7 @@ class GrassEater {
     
             move() {
             let emptyCell = this.chooseCell(0);
-            let newCell = random(emptyCell)
+            let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
     
             if (newCell) {
                 let newX = newCell[0];
