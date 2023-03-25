@@ -1,4 +1,4 @@
-let LivingCreature = requirel(".LivingCreature")
+let LivingCreature = require("./LivingCreature")
 
 module.exports = class Jur extends LivingCreature{
     constructor(x,y){
@@ -27,7 +27,7 @@ module.exports = class Jur extends LivingCreature{
 
     eat() {
         let emptyCell = this.chooseCell(1);
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
 
         if (newCell) {
             this.energy += 5;

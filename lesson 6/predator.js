@@ -1,4 +1,4 @@
-let LivingCreature = requirel(".LivingCreature")
+let LivingCreature = require("./LivingCreature")
 
 module.exports = class Predator extends LivingCreature{
     constructor(x,y){

@@ -1,4 +1,4 @@
-let LivingCreature = requirel(".LivingCreature")
+let LivingCreature = require("./LivingCreature")
 
 module.exports = class Grass extends LivingCreature{
         constructor(x,y){
