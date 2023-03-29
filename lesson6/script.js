@@ -1,6 +1,8 @@
 // function matrixGenerator(matrixSize,grass,grassEater,predator,jur,fruit,hunter,poacher){
 //     var matrix = []
 
+
+
 const socket = io()
 
 //     for(let i = 0 ; i < matrixSize; i++){
@@ -110,22 +112,40 @@ function setup() {
 function updateColor(matrix) {
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[y].length; x++) {
+            var tBot = side - side * 0.3
+            textSize(tBot);
             if (matrix[y][x] == 1) {
                 fill("green")
+                rect(x * side, y * side, side, side)
+                text('🌿', x * side, y * side + tBot)
             } else if (matrix[y][x] == 2) {
                 fill("yellow")
+                rect(x * side, y * side, side, side)
+                text('🦌', x * side, y * side + tBot)
             } else if (matrix[y][x] == 3) {
                 fill("red")
+                rect(x * side, y * side, side, side)
+                text('🐆', x * side, y * side + tBot)
             } else if (matrix[y][x] == 4) {
                 fill("blue")
+                rect(x * side, y * side, side, side)
+                text('💧', x * side, y * side + tBot)
             } else if (matrix[y][x] == 5) {
                 fill("pink")
+                rect(x * side, y * side, side, side)
+                text('🍑', x * side, y * side + tBot)
             } else if (matrix[y][x] == 6) {
                 fill("black")
+                rect(x * side, y * side, side, side)
+                text('👨', x * side, y * side + tBot)
             } else if (matrix[y][x] == 7) {
                 fill("brown")
+                rect(x * side, y * side, side, side)
+                text('💀', x * side, y * side + tBot)
             } else {
                 fill("gray")
+                rect(x * side, y  * side , side ,side)
+
             }
             rect(x * side, y * side, side, side)
         }

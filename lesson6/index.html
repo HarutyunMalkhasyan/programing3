@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+    <!-- <script src="LivingCreature.js"></script>
+
+    <script src="grass.js"></script>
+    <script src="grassEater.js"></script>
+    <script src="predator.js"></script>
+    <script src="jur.js"></script>
+    <script src="fruit.js"></script>
+    <script src="hunter.js"></script>
+    <script src="poacher.js"></script> -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+
+</head>
+<body>
+    
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+
+    <style>
+      body {
+        background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,100,1) 35%, rgba(0,212,255,1) 100%);
+        display: flex;
+    flex-direction: row-reverse;
+    width: 1000px;
+    margin: 0 auto;
+    justify-content: flex-end;
+      }
+      pre{
+    font-size: 20px;
+}
+      main{
+    margin: 200px 0;
+}
+
+      .none{
+    margin: 250px 0;
+}
+      p {
+  font-family: sans-serif;
+  color: LightGray;
+}
+
+.box {
+  width: 200px;
+    padding: -13px;
+    height: 50px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+}
+
+.grass {
+  background-color: green;
+}
+.grassEater{
+  background-color: yellow;
+}
+.hunter{
+  background-color: black;
+  color: white;
+}
+.predator{
+  background-color: red;
+}
+.poacher{
+  background-color: brown;
+}
+.fruits{
+  background-color: pink;
+}
+.water{
+  background-color: blue;
+}
+.header{
+  margin: 20px 0px 0 -777px;
+    font-size: 30px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="header">
+    <h1>Game of Life</h1>
+
+    </div>
+<div class="none">
+  
+  <div class="box box--fixed grass">
+    <pre>Grass</pre>
+  </div>
+  
+  <div class="box box--fixed grassEater">
+    <pre>Eater</pre>
+  </div>
+  
+  <div class="box box--fixed hunter">
+    <pre>Hunter</pre>
+  </div>
+  
+  <div class="box box--fixed predator">
+    <pre>Predator</pre>
+  </div>
+
+  <div class="box box--fixed poacher">
+    <pre>Poacher</pre>
+  </div>
+  
+  <div class="box box--fixed fruits">
+    <pre>Fruits</pre>
+  </div>
+  <div class="box box--fixed water">
+    <pre>Water</pre>
+  </div>
+</div>
+  </body>
+</html>
