@@ -57,7 +57,6 @@ mul() {
     }
 }
     
-    //dfjhdfighdfisghdsheu
 eat() {
     let emptyCell = this.chooseCell(1,2);
     let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
