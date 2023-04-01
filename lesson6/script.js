@@ -109,13 +109,34 @@ function setup() {
 
 }
 
+let Ses = []
+function Season(s){
+    let color = []
+    if(s == 1){
+        color = ["white"]
+    }
+    else if(s == 2){
+        color = ["#ffd966"]
+    }
+    else if(s == 3){
+        color = ["green"]
+    }
+    else if(s == 4){
+        color = ["#f1c232"]
+        
+    }
+    Ses=color
+        return Ses 
+}
+Season(3)
+console.log(Ses);
 function updateColor(matrix) {
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[y].length; x++) {
-            var tBot = side - side * 0.3
+            var tBot = side - side * 0.1
             textSize(tBot);
             if (matrix[y][x] == 1) {
-                fill("green")
+                fill(Ses[0])
                 rect(x * side, y * side, side, side)
                 text('🌿', x * side, y * side + tBot)
             } else if (matrix[y][x] == 2) {
@@ -133,13 +154,13 @@ function updateColor(matrix) {
             } else if (matrix[y][x] == 5) {
                 fill("pink")
                 rect(x * side, y * side, side, side)
-                text('🍑', x * side, y * side + tBot)
+                text('🍇', x * side, y * side + tBot)
             } else if (matrix[y][x] == 6) {
-                fill("black")
+                fill("brown")
                 rect(x * side, y * side, side, side)
                 text('👨', x * side, y * side + tBot)
             } else if (matrix[y][x] == 7) {
-                fill("brown")
+                fill("black")
                 rect(x * side, y * side, side, side)
                 text('💀', x * side, y * side + tBot)
             } else {
@@ -147,7 +168,7 @@ function updateColor(matrix) {
                 rect(x * side, y  * side , side ,side)
 
             }
-            rect(x * side, y * side, side, side)
+            // rect(x * side, y * side, side, side)
         }
     }
 

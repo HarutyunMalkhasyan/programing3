@@ -18,19 +18,6 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
 
-</head>
-<body>
-    
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title></title>
-
     <style>
       body {
         background: rgb(2,0,36);
@@ -70,6 +57,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,100,1) 35%, rgb
 .grass {
   background-color: green;
 }
+
 .grassEater{
   background-color: yellow;
 }
@@ -95,40 +83,55 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,100,1) 35%, rgb
 }
 
     </style>
-  </head>
-  <body>
-    <div class="header">
-    <h1>Game of Life</h1>
+</head>
+<body>
 
+  
+  
+    
+    <!-- <button class="button-79" role="button"><a href="/info">INFORMATION</a></button>
+    <script src="/socket.io/socket.io.js"></script>
+       <script src="script.js"></script> -->
+       <div class="header">
+        <h1>Game of Life</h1>
+    
+        </div>
+        <div class="none">
+          <div class="seasonsBtn">
+      <button onclick="Season(1)">WINTER</button>
+      <button onclick="Season(2)">AUTUMN</button> 
+      <br>
+      <button onclick="Season(3)">SUMMER</button>
+      <button onclick="Season(4)">SPRING</button>
+          
+      <button class="box box--fixed grass">
+        Grass
+      </button>
+      
+      <button class="box box--fixed grassEater"> 
+        Eater
+      </button>
+      
+      <button class="box box--fixed hunter">
+        Hunter
+      </button>
+      
+      <button class="box box--fixed predator">
+
+      Predator
+      </button>
+    
+      <button class="box box--fixed poacher">
+      Poacher
+      </button>
+      
+      <button class="box box--fixed fruits">
+      Fruits
+      </button>
+      <button class="box box--fixed water">
+      Water
+      </button>
     </div>
-<div class="none">
-  
-  <div class="box box--fixed grass">
-    <pre>Grass</pre>
-  </div>
-  
-  <div class="box box--fixed grassEater">
-    <pre>Eater</pre>
-  </div>
-  
-  <div class="box box--fixed hunter">
-    <pre>Hunter</pre>
-  </div>
-  
-  <div class="box box--fixed predator">
-    <pre>Predator</pre>
-  </div>
-
-  <div class="box box--fixed poacher">
-    <pre>Poacher</pre>
-  </div>
-  
-  <div class="box box--fixed fruits">
-    <pre>Fruits</pre>
-  </div>
-  <div class="box box--fixed water">
-    <pre>Water</pre>
-  </div>
-</div>
-  </body>
+</body>
 </html>
+<!-- asdasdasd -->
