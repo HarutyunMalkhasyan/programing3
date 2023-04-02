@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
-    <!-- <script src="LivingCreature.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+  <!-- <script src="LivingCreature.js"></script>
 
     <script src="grass.js"></script>
     <script src="grassEater.js"></script>
@@ -15,10 +17,10 @@
     <script src="fruit.js"></script>
     <script src="hunter.js"></script>
     <script src="poacher.js"></script> -->
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
 
-    <style>
+  <!-- <style>
       body {
         background: rgb(2,0,36);
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,100,1) 35%, rgba(0,212,255,1) 100%);
@@ -82,56 +84,107 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,100,1) 35%, rgb
     font-size: 30px;
 }
 
-    </style>
+    </style> -->
 </head>
+
 <body>
 
-  
-  
-    
-    <!-- <button class="button-79" role="button"><a href="/info">INFORMATION</a></button>
+
+
+
+
+
+  <!-- <button class="button-79" role="button"><a href="/info">INFORMATION</a></button>
     <script src="/socket.io/socket.io.js"></script>
        <script src="script.js"></script> -->
-       <div class="header">
-        <h1>Game of Life</h1>
-    
+  <div class="header">
+    <h1>Game of Life</h1>
+
+    <div class="counters">
+      <div class="col-sm-3">
+        <div class="counter-count">
+          <span class="count" id="grass">0</span>
+          <h3 class="title">Grass</h3>
         </div>
-        <div class="none">
-          <div class="seasonsBtn">
-      <button onclick="Season(1)">WINTER</button>
-      <button onclick="Season(2)">AUTUMN</button> 
-      <br>
-      <button onclick="Season(3)">SUMMER</button>
-      <button onclick="Season(4)">SPRING</button>
-          
-      <button class="box box--fixed grass">
-        Grass
-      </button>
-      
-      <button class="box box--fixed grassEater"> 
+      </div>
+      <div class="col-sm-3">
+        <div class="counter-count">
+          <span class="count" id="grassEater">0</span>
+          <h3 class="title">grassEater</h3>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="counter-count">
+          <span class="count" id="predator">0</span>
+          <h3 class="title">Predator</h3>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="counter-count">
+          <span class="count" id="water">0</span>
+          <h3 class="title">Water</h3>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="counter-count">
+          <span class="count" id="poacher">0</span>
+          <h3 class="title">Poacher</h3>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="counter-count">
+          <span class="count" id="fruit">0</span>
+          <h3 class="title">Fruits</h3>
+        </div>
+
+
+      </div>
+      <div class="col-sm-3">
+        <div class="counter-count">
+          <span class="count" id="hunter">0</span>
+          <h3 class="title">Hunter</h3>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="none">
+    <div class="seasonsBtn">
+      <div class="weather-button">
+        <button onclick="Season(1)">WINTER</button>
+        <button onclick="Season(2)">AUTUMN</button>
+        <br>
+        <button onclick="Season(3)">SUMMER</button>
+        <button onclick="Season(4)">SPRING</button>
+      </div>
+      <button onclick="addGrass()" class="box box--fixed grass">Grass</button>
+
+      <button onclick="addGrassEater()" class="box box--fixed grassEater">
         Eater
       </button>
-      
-      <button class="box box--fixed hunter">
+
+      <button onclick="addHunter()" class="box box--fixed hunter">
         Hunter
       </button>
-      
-      <button class="box box--fixed predator">
 
-      Predator
+      <button onclick="addPredator()" class="box box--fixed predator">
+
+        Predator
       </button>
-    
-      <button class="box box--fixed poacher">
-      Poacher
+
+      <button onclick=" addPoacher()" class="box box--fixed poacher">
+        Poacher
       </button>
-      
-      <button class="box box--fixed fruits">
-      Fruits
+
+      <button onclick="addFruits()" class="box box--fixed fruits">
+        Fruits
       </button>
-      <button class="box box--fixed water">
-      Water
+      <button onclick="addJur()" class="box box--fixed water">
+        Water
       </button>
     </div>
 </body>
+
 </html>
 <!-- asdasdasd -->

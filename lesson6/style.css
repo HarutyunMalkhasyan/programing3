@@ -1,0 +1,165 @@
+body {
+  /* background: rgb(2,0,36); */
+/* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,100,1) 35%, rgba(0,212,255,1) 100%); */
+  display: flex;
+flex-direction: row-reverse;
+width: 1000px;
+margin: 0 auto;
+justify-content: flex-end;
+}
+pre{
+font-size: 20px;
+}
+main{
+margin: 300px 0;
+}
+h1{
+  margin: 0 250px;
+}
+.none{
+margin: 380px 0;
+}
+p {
+font-family: sans-serif;
+color: LightGray;
+}
+
+.box {
+width: 200px;
+padding: -13px;
+height: 43px;
+margin: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+top: 50px;
+}
+
+.grass {
+background-color: green;
+}
+
+.grassEater{
+background-color: yellow;
+}
+.hunter{
+background-color: black;
+color: white;
+}
+.predator{
+background-color: red;
+}
+.poacher{
+background-color: brown;
+}
+.fruits{
+background-color: pink;
+}
+.water{
+background-color: blue;
+}
+.header{
+margin: 20px 0px 0 -777px;
+font-size: 30px;
+}
+
+
+.counter-count{
+    text-align: center;
+  }
+  
+  .counter-count .count{
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+    border-radius: 100%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    font-weight: 700;
+    justify-content: center;
+    height: 50px;
+    margin: 0 auto 20px;
+    width: 50px;
+  }
+  
+  .counter-count h3{
+    color: #ffffff;
+  }
+  
+  @media (max-width: 1200px){
+    .counter-count .count{
+      height: 120px;
+      font-size: 40px;
+      width: 120px;
+    }
+  }
+  
+  .counters{
+    display: flex;
+    padding: 25px;
+  }
+  
+  .col-sm-3{
+    padding: 0 7px;
+  }
+  body{
+    background: linear-gradient(90deg, #ff6e7f,#bfe9ff );
+    background-size: 300% 300%;
+    animation: animation 3s infinite ease-in-out;
+  }
+
+  @keyframes animation{
+    0%{
+      background-position: 0 50%;
+    }
+    50%{
+      background-position: 100% 50%;
+    }
+    100%{
+      background-position: 0 50%;
+    }
+  }
+.weather-button{
+  margin: -76px 0 0 20px;
+}
+  .weather-button > button{
+    width: 98px;
+    height: 70px;
+    margin-bottom: 5px;
+  }
+
+
+  .weather-button>button:nth-child(1){
+    background: linear-gradient(90deg,  #e6dada,#274046);
+    background-size: 300% 300%;
+    animation: buttonAnimation 3s infinite ease-in-out;
+  }
+  .weather-button>button:nth-child(2){
+    background: linear-gradient(90deg,  #dad299,#b0dab9);
+    background-size: 300% 300%;
+    animation: buttonAnimation 3s infinite ease-in-out;
+  }
+  .weather-button>button:nth-child(4){
+    background: linear-gradient(90deg, #1d976c,#93f9b9  );
+    background-size: 300% 300%;
+    animation: buttonAnimation 3s infinite ease-in-out;
+  }  
+  .weather-button>button:nth-child(5){
+    background: linear-gradient(90deg, #bdc3c7,#5fc3e4);
+    background-size: 300% 300%;
+    animation: buttonAnimation 3s infinite ease-in-out;
+  }
+  
+  @keyframes buttonAnimation{
+    0%{
+      background-position: 0 50%;
+    }
+    50%{
+      background-position: 100% 50%;
+    }
+    100%{
+      background-position: 0 50%;
+    }
+  }
+  

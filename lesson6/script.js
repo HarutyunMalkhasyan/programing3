@@ -110,23 +110,23 @@ function setup() {
 }
 
 let Ses = []
-function Season(s){
+function Season(s) {
     let color = []
-    if(s == 1){
+    if (s == 1) {
         color = ["white"]
     }
-    else if(s == 2){
+    else if (s == 2) {
         color = ["#ffd966"]
     }
-    else if(s == 3){
+    else if (s == 3) {
         color = ["green"]
     }
-    else if(s == 4){
+    else if (s == 4) {
         color = ["#f1c232"]
-        
+
     }
-    Ses=color
-        return Ses 
+    Ses = color
+    return Ses
 }
 Season(3)
 console.log(Ses);
@@ -156,16 +156,16 @@ function updateColor(matrix) {
                 rect(x * side, y * side, side, side)
                 text('🍇', x * side, y * side + tBot)
             } else if (matrix[y][x] == 6) {
-                fill("brown")
+                fill("black")
                 rect(x * side, y * side, side, side)
                 text('👨', x * side, y * side + tBot)
             } else if (matrix[y][x] == 7) {
-                fill("black")
+                fill("brown")
                 rect(x * side, y * side, side, side)
                 text('💀', x * side, y * side + tBot)
             } else {
                 fill("gray")
-                rect(x * side, y  * side , side ,side)
+                rect(x * side, y * side, side, side)
 
             }
             // rect(x * side, y * side, side, side)
@@ -195,3 +195,37 @@ function updateColor(matrix) {
 
 }
 socket.on("send matrix", updateColor)
+
+function addGrass() {
+    socket.emit("add grass")
+}
+function addGrassEater() {
+    socket.emit("add grassEater")
+}
+function addHunter() {
+    socket.emit("add hunter");
+}
+function addPredator() {
+    socket.emit("add predator");
+}
+function addFruits() {
+    socket.emit("add fruits");
+}
+function addPoacher() {
+    socket.emit("add poacher");
+}
+function addJur() {
+    socket.emit("addWater")
+}
+
+
+socket.on ("send datas", function(count){
+    document.getElementById("grass").innerHTML = count.grass;
+    document.getElementById("grassEater").innerHTML = count.grassEater;
+    document.getElementById("predator").innerHTML = count.predator;
+    document.getElementById("water").innerHTML = count.jur;
+    document.getElementById("poacher").innerHTML = count.poacher;
+    document.getElementById("fruit").innerHTML = count.fruit;
+    document.getElementById("hunter").innerHTML = count.hunter;
+    
+})

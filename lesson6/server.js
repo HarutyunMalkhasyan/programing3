@@ -6,7 +6,7 @@ var fs = require('fs');
 
 app.use(express.static("."));
 app.get('/', function (req, res) {
-    res.redirect('index.html'); 
+    res.redirect('index.html');
 });
 
 
@@ -75,7 +75,7 @@ function matrixGenerator(matrixSize, grass, grassEater, predator, jur, fruit, hu
     return matrix
 }
 
-matrix = matrixGenerator(40, 40, 2, 2, 1, 1, 1, 1)
+matrix = matrixGenerator(50, 0, 0, 0, 0, 0, 0, 0)
 
 grassArr = []
 grassEaterArr = []
@@ -126,7 +126,103 @@ function createObj() {
     io.emit("send matrix", matrix)
 }
 
+
 createObj()
+
+function addGrass() {
+    for (var i = 0; i < 2; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 1
+            var gr = new Grass(x, y)
+            grassArr.push(gr)
+        }
+    }
+}
+function addGrassEater() {
+    for (var i = 0; i < 2; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 2
+            grassEaterArr.push(new GrassEater(x, y))
+        }
+    }
+}
+
+
+function addPredator() {
+    for (var i = 0; i < 2; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 3
+            var pred = new Predator(x, y)
+            predatorArr.push(pred)
+        }
+    }
+}
+
+
+// function addJur() {
+//     for (var i = 0; i < 2; i++) {
+//         var x = Math.floor(Math.random() * matrix[0].length)
+//         var y = Math.floor(Math.random() * matrix.length)
+//         if (matrix[y][x] = 0) {
+//             matrix[y][x] = 4;
+//             var jur = new Jur(x, y)
+//             jurArr.push(jur)
+//         }
+//     }
+// }
+function addHunter() {
+    for (var i = 0; i < 2; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 6
+            var han = new Hunter(x, y)
+            hunterArr.push(han)
+        }
+    }
+}
+function addFruits() {
+    for (var i = 0; i < 2; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 5
+            var fr = new Fruit(x, y)
+            fruitArr.push(fr)
+        }
+    }
+}
+function addPoacher() {
+    for (var i = 0; i < 2; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 7
+            var poh = new Poacher(x, y)
+            poacherArr.push(poh)
+        }
+    }
+}
+
+
+function addJur() {
+    for (var i = 0; i < 2; i++) {
+        var x = Math.floor(Math.random() * matrix[0].length)
+        var y = Math.floor(Math.random() * matrix.length)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 4
+            var jur = new Jur(x, y)
+            jurArr.push(jur)
+        }
+    }
+}
+
 
 function gameMove() {
     for (let i in grassArr) {
@@ -151,4 +247,38 @@ function gameMove() {
     }
     io.emit("send matrix", matrix)
 }
-setInterval(gameMove, 300)
+
+
+io.on('connection', function (socket) {
+    createObj()
+    socket.on("add grass", addGrass);
+    socket.on("add grassEater", addGrassEater);
+    socket.on("add predator", addPredator);
+    socket.on("add fruits", addFruits);
+    socket.on("add poacher", addPoacher);
+    socket.on("add hunter", addHunter);
+    socket.on("addWater", addJur);
+})
+
+
+setInterval(function statitics() {
+    // console.log(grassArr.length,waterArr.length);
+    
+    countd = {
+        grass: grassArr.length,
+        grassEater: grassEaterArr.length,
+        predator: predatorArr.length,
+        jur: jurArr.length,
+        fruit: fruitArr.length,
+        hunter: hunterArr.length,
+        poacher: poacherArr.length
+        
+        
+    }
+    fs.writeFile("statics.json", JSON.stringify(countd), function () {
+        io.emit("send datas", countd)
+    })
+    
+}, 300);
+
+setInterval(gameMove, 1000)
