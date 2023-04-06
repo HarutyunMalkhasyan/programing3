@@ -196,11 +196,14 @@ function updateColor(matrix) {
 }
 socket.on("send matrix", updateColor)
 
+function restart(){
+    socket.emit("restart");
+}
 function addGrass() {
-    socket.emit("add grass")
+    socket.emit("add grass");
 }
 function addGrassEater() {
-    socket.emit("add grassEater")
+    socket.emit("add grassEater");
 }
 function addHunter() {
     socket.emit("add hunter");
@@ -215,7 +218,7 @@ function addPoacher() {
     socket.emit("add poacher");
 }
 function addJur() {
-    socket.emit("addWater")
+    socket.emit("addWater");
 }
 
 

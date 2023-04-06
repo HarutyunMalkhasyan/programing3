@@ -222,6 +222,20 @@ function addJur() {
         }
     }
 }
+function restart() {
+    grassArr = []
+    grassEaterArr = []
+    predatorArr = []
+    waterArr = []
+    bombArr = []
+    flowersArr = []
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+            matrix[y][x] = 0;
+        }
+    }
+   
+}
 
 
 function gameMove() {
@@ -245,12 +259,13 @@ function gameMove() {
     for (let i in poacherArr) {
         poacherArr[i].eat()
     }
-    io.emit("send matrix", matrix)
+    io.sockets.emit("send matrix", matrix)
 }
 
 
 io.on('connection', function (socket) {
     createObj()
+    socket.on("restart", restart)
     socket.on("add grass", addGrass);
     socket.on("add grassEater", addGrassEater);
     socket.on("add predator", addPredator);
@@ -263,7 +278,7 @@ io.on('connection', function (socket) {
 
 setInterval(function statitics() {
     // console.log(grassArr.length,waterArr.length);
-    
+        
     countd = {
         grass: grassArr.length,
         grassEater: grassEaterArr.length,
